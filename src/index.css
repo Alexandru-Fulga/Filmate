@@ -197,6 +197,26 @@
   .additional-info strong {
     @apply font-semibold text-white;
   }
+
+  .watch-providers {
+    @apply mt-6 space-y-4;
+  }
+
+  .provider-section {
+    @apply space-y-2;
+  }
+
+  .provider-section h4 {
+    @apply text-white text-lg font-semibold;
+  }
+
+  .provider-list {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .provider-item img {
+    @apply w-10 h-10 rounded-lg object-cover;
+  }
 }
 
 @utility text-gradient {

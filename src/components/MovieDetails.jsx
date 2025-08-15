@@ -1,21 +1,47 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useEffect, useState } from "react";
+import WatchProviders from "./WatchProviders";
 
 const MovieDetails = ({ movie, onClose }) => {
+    const [watchProviders, setWatchProviders] = useState(null);
+
     useGSAP(() => {
         gsap.fromTo(".modal",
             {
                 opacity: 0,
-                scale: 0.8,
+                scale: 0.6,
             },
             {
                 opacity: 1,
                 scale: 1,
                 duration: 0.3,
-                ease: "power2.out",
+                ease: "power1.out",
             }
         );
     }, []);
+
+    useEffect(() => {
+        const fetchWatchProviders = async () => {
+            try {
+                const response = await fetch(
+                    `https://api.themoviedb.org/3/movie/${movie.id}/watch/providers`,
+                    {
+                        headers: {
+                            accept: 'application/json',
+                            Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
+                        },
+                    }
+                );
+                const data = await response.json();
+                setWatchProviders(data.results);
+            } catch (error) {
+                console.error('Error fetching watch providers:', error);
+            }
+        };
+
+        fetchWatchProviders();
+    }, [movie.id]);
 
     return (
         <div className="modal-overlay" onClick={onClose}>
@@ -51,6 +77,9 @@ const MovieDetails = ({ movie, onClose }) => {
                             <p><strong>Popularity:</strong> {movie.popularity?.toFixed(1)}</p>
                             <p><strong>Adult Content:</strong> {movie.adult ? 'Yes' : 'No'}</p>
                         </div>
+
+                        <h3 className="text-white text-xl font-bold mt-6 mb-2">Where to Watch</h3>
+                        <WatchProviders providers={watchProviders} />
                     </div>
                 </div>
             </div>
