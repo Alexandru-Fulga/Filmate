@@ -4,6 +4,10 @@
 
 A modern movie discovery platform built with React that allows users to search through thousands of movies, view trending selections, and find where to watch their favorite films.
 
+## Check the project live
+
+- [text](https://filmate-sigma.vercel.app/)
+
 ## Features ✨
 
 - **Movie Search**: Search through an extensive database of movies in real-time
@@ -119,6 +123,10 @@ filmate/
 # Filmate 🎬 (Español)
 
 Una plataforma moderna de descubrimiento de películas construida con React que permite a los usuarios buscar entre miles de películas, ver selecciones tendencias y encontrar dónde ver sus películas favoritas.
+
+## Ver el proyecto en vivo
+
+- [text](https://filmate-sigma.vercel.app/)
 
 ## Características ✨
 
