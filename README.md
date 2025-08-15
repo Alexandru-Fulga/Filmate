@@ -6,7 +6,7 @@ A modern movie discovery platform built with React that allows users to search t
 
 ## Check the project live
 
-- [text](https://filmate-sigma.vercel.app/)
+- [LIVE PROJECT](https://filmate-sigma.vercel.app/)
 
 ## Features ✨
 
@@ -126,7 +126,7 @@ Una plataforma moderna de descubrimiento de películas construida con React que 
 
 ## Ver el proyecto en vivo
 
-- [text](https://filmate-sigma.vercel.app/)
+- [PROYECTO EN VIVO](https://filmate-sigma.vercel.app/)
 
 ## Características ✨
 
