@@ -104,6 +104,10 @@ filmate/
 - Loading states with custom spinner
 - Modal-based detailed view
 
+## 📝 License
+
+- This project is licensed under the MIT License. See the LICENSE file for details.
+
 ## Acknowledgments 🙏
 
 - TMDB API and JustWatch for providing movie data
@@ -215,6 +219,10 @@ filmate/
 - Diseño responsivo
 - Estados de carga con spinner personalizado
 - Vista detallada basada en modales
+
+## 📝 Licencia
+
+- Este proyecto está licenciado bajo la licencia MIT. Consulte el archivo LICENSE para obtener más detalles.
 
 ## Agradecimientos 🙏
 
