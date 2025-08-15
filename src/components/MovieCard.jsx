@@ -4,33 +4,18 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const MovieCard = ({ movie: { title, vote_average, poster_path,
-    release_date, original_language, overview } }) => {
-
-    useGSAP(() => {
-        gsap.fromTo(".movie-card",
-            {
-                opacity: 0,
-                y: 50
-            },
-            {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                stagger: 0.2,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: ".movie-card",
-                    start: "top center",
-                    end: "bottom center+=300",
-                    toggleActions: "play none none reverse",
-                }
-            }
-        );
-    }, []);
+const MovieCard = ({ movie, onMovieClick }) => {
+    const {
+        title,
+        vote_average,
+        poster_path,
+        release_date,
+        original_language,
+        overview
+    } = movie;
 
     return (
-        <div className="movie-card">
+        <div className="movie-card cursor-pointer" onClick={() => onMovieClick(movie)}>
             <img src={poster_path
                 ? `https://image.tmdb.org/t/p/w500/${poster_path}`
                 : '/no-movie.png'} alt="Movie Poster" />
@@ -40,7 +25,7 @@ const MovieCard = ({ movie: { title, vote_average, poster_path,
 
                 <div className="content">
                     <div className="rating">
-                        <img src="/star.svg" alt="Rating" />
+                        <img src="/star.svg" alt="Rating" className="rating-star" />
                         <p>{vote_average ? vote_average.toFixed(1) : 'N/A'}</p>
                     </div>
 

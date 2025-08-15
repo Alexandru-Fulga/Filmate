@@ -8,6 +8,7 @@ import TrendingMovies from './components/TrendingMovies';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import MovieDetails from './components/MovieDetails';
 
 const API_BASE_URL = 'https://api.themoviedb.org/3';
 
@@ -30,6 +31,7 @@ function App() {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [debouncedSearchTerm, setdebouncedSearchTerm] = useState('');
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useDebounce(() => setdebouncedSearchTerm(searchTerm), 700, [searchTerm]);
 
@@ -92,6 +94,10 @@ function App() {
     });
   }, []);
 
+  const handleMovieClick = (movie) => {
+    setSelectedMovie(movie);
+  };
+
   return (
     <main>
       <div className="pattern" />
@@ -117,11 +123,22 @@ function App() {
           ) : (
             <ul>
               {movieList.map((movie) => (
-                <MovieCard key={movie.id} movie={movie} />
+                <MovieCard
+                  key={movie.id}
+                  movie={movie}
+                  onMovieClick={handleMovieClick}
+                />
               ))}
             </ul>
           )}
         </section>
+
+        {selectedMovie && (
+          <MovieDetails
+            movie={selectedMovie}
+            onClose={() => setSelectedMovie(null)}
+          />
+        )}
       </div>
     </main>
   )

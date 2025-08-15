@@ -22,7 +22,7 @@ const Search = ({ searchTerm, setSearchTerm }) => {
 
                 <input
                     type="text"
-                    placeholder="Search through thousands of movies"
+                    placeholder="Search through thousands of movies..."
                     value={searchTerm}
                     onChange={(ev) => setSearchTerm(ev.target.value)}
                 />

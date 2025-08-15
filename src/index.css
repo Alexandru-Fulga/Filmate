@@ -97,12 +97,12 @@
     @apply space-y-9;
 
     & ul {
-      @apply grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4;
+      @apply grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4;
     }
   }
 
   .movie-card {
-    @apply bg-dark-100 p-5 rounded-2xl shadow-inner shadow-light-100/10;
+    @apply bg-dark-100 p-5 rounded-2xl shadow-inner shadow-light-100/10 mx-auto w-5/6 sm:w-full;
 
     & img {
       @apply rounded-lg h-auto w-full;
@@ -139,10 +139,63 @@
     & .content .year {
       @apply text-gray-100 font-medium text-base;
     }
+
+    .overview {
+      @apply mt-2 text-gray-100 text-sm line-clamp-4;
+    }
+  }
+
+  /* Improved Modal Styles */
+  .modal-overlay {
+    @apply fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4;
+  }
+
+  .modal {
+    @apply relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-2xl bg-dark-100;
+  }
+
+  .close-btn {
+    @apply absolute right-4 top-4 z-10 cursor-pointer text-3xl text-white transition-colors hover:text-gray-400;
+  }
+
+  .modal-content {
+    @apply flex flex-col gap-6 p-6 md:flex-row md:gap-8 md:p-8;
+  }
+
+  .modal-content img {
+    @apply h-auto w-2/3 max-w-60 mx-auto rounded-lg object-cover md:w-80 md:max-w-none md:mx-0;
+  }
+
+  .movie-info {
+    @apply flex-1;
+  }
+
+  .movie-info .rating img {
+    @apply size-5;
+  }
+
+  .meta {
+    @apply mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-gray-100;
+
+    & .rating {
+      @apply flex flex-row gap-2;
+    }
   }
 
   .overview {
-    @apply mt-2 text-gray-100 text-sm;
+    @apply text-gray-100;
+  }
+
+  .additional-info {
+    @apply mt-4 space-y-2 text-gray-100;
+  }
+
+  .additional-info p {
+    @apply text-base;
+  }
+
+  .additional-info strong {
+    @apply font-semibold text-white;
   }
 }
 
